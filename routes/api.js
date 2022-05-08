@@ -15,7 +15,7 @@ module.exports = function (app) {
             const spellOutUnit = convertHandler.spellOutUnit(initUnit);
             const returnNum = convertHandler.convert(initNum, initUnit);
             const string = convertHandler.getString(initNum, initUnit, returnNum, returnUnit)
-          console.log(initNum, initUnit)
+          
           if (initNum === 'invalid number' && initUnit === 'invalid unit') throw new Error('invalid number and unit')
           if (initNum === 'invalid number' ) throw new Error('invalid number')
           if (initUnit === 'invalid unit') throw new Error('invalid unit')
@@ -23,8 +23,8 @@ module.exports = function (app) {
             res.json({ initNum, initUnit, returnNum, returnUnit, string })
         }
         catch(e) {
+            res.send(e.message)
             
-            res.status(400).send(e.message)
         }
     })
 

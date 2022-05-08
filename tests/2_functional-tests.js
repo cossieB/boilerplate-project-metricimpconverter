@@ -26,7 +26,7 @@ suite('Functional Tests', function() {
             .request(server)
             .get('/api/convert?input=32g')
             .end((err, res) => {
-                assert.equal(res.status, 400);
+                assert.equal(res.status, 200);
                 assert.equal(res.text, 'invalid unit')
             })
         done()
@@ -36,7 +36,7 @@ suite('Functional Tests', function() {
             .request(server)
             .get('/api/convert?input=1/2/3kg')
             .end((err, res) => {
-                assert.equal(res.status, 400);
+                assert.equal(res.status, 200);
                 assert.equal(res.text, 'invalid number')
             })
         done()
@@ -46,7 +46,7 @@ suite('Functional Tests', function() {
             .request(server)
             .get('/api/convert?input=1/2/3kgs')
             .end((err, res) => {
-                assert.equal(res.status, 400);
+                assert.equal(res.status, 200);
                 assert.equal(res.text, 'invalid number and unit')
             })
         done()
@@ -56,7 +56,7 @@ suite('Functional Tests', function() {
             .request(server)
             .get('/api/convert?input=1/2/3kgs')
             .end((err, res) => {
-                assert.equal(res.status, 400);
+                assert.equal(res.status, 200);
                 assert.equal(res.text, 'invalid number and unit')
             })
         done()
